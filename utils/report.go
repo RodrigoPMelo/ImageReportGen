@@ -73,22 +73,22 @@ func addImagesToDocument(doc *docx.RootDoc, images []string, imagesPerPage int, 
 		var rows, cols int
 		var width, height float64
 		if orientation == "Paisagem" {
-			rows = 1
-			cols = 3 // Até 3 imagens por linha para paisagem
-			width = 5
-			height = 3
+			rows = 3
+			cols = 1 // Até 3 imagens por coluna para paisagem
+			width = 4
+			height = 2.5
 		} else {
 			rows = 2
 			cols = 2 // Até 4 imagens no total, 2x2 para retrato
 			width = 3
-			height = 5
+			height = 4
 		}
-
+		
 		table := doc.AddTable()
-
 		for r := 0; r < rows && imageCount < totalImages; r++ {
 			row := table.AddRow()
 			for c := 0; c < cols && imageCount < totalImages; c++ {
+
 				cell := row.AddCell()
 				err := insertImageIntoCell(cell, images[imageCount], width, height)
 				if err != nil {
@@ -98,18 +98,15 @@ func addImagesToDocument(doc *docx.RootDoc, images []string, imagesPerPage int, 
 			}
 		}
 	}
-
 	return nil
 }
 
 func insertImageIntoCell(cell *docx.Cell, imagePath string, width, height float64) error {
-
 	// Criar um novo parágrafo na célula
 	_, err := cell.AddEmptyPara().AddPicture(imagePath, units.Inch(width), units.Inch(height))
 	if err != nil {
 		return err
 	}
-
 	return nil
 }
 
