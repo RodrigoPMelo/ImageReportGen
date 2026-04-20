@@ -1,0 +1,12 @@
+ImageReportGen — teste rápido
+===============================
+
+1. Extraia este ZIP para uma pasta (ex.: Documentos).
+2. Faça duplo clique em ImageReportGen.exe.
+
+Se a janela não abrir ou ficar em branco:
+  Instale o "Microsoft Edge WebView2 Runtime" a partir do site da Microsoft
+  (pesquise no Google/Bing: WebView2 Runtime download).
+  Na maioria dos Windows 10/11 já vem instalado.
+
+Documentação completa: ficheiro MANUAL_INSTALACAO_E_USO.md nesta mesma pasta (abrir com Word ou navegador).
