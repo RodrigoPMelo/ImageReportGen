@@ -1,6 +1,8 @@
 all: build test
 
 build:
+	@echo "Generating Windows icon from build/appicon.png..."
+	@go run ./tools/genicon -in build/appicon.png -out build/windows/icon.ico
 	@echo "Building Wails app..."
 	@wails build
 
